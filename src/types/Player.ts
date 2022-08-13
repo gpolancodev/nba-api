@@ -24,4 +24,5 @@ export interface Player {
 	lastAffiliation: string
 	country: string
 	isallStar?: boolean
+	photoUrl: string
 }

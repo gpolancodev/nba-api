@@ -36,9 +36,12 @@ const updateMemoryPlayers = async (year: number): Promise<boolean> => {
 			if (!fs.existsSync(playersPath)) {
 				fs.writeFileSync(playersPath, '{}')
 			}
-
 			const mapedData = data.league.standard.filter((player: any) => {
-				if (player.isActive) {
+				if (
+					player.isActive &&
+					!!player.jersey &&
+					!!player.draft.teamId
+				) {
 					delete player.teamSitesOnly
 					return player
 				}
@@ -56,7 +59,8 @@ const updateMemoryPlayers = async (year: number): Promise<boolean> => {
 			return true
 		}
 		return false
-	} catch {
+	} catch (error: any) {
+		console.log('updateMemoryPlayers Error', error.message)
 		return false
 	}
 }
@@ -105,6 +109,7 @@ export const getPlayers = async (year: number) => {
 	let existPlayerByYear = playerData[`${year}`] !== undefined
 
 	if (!existPlayerByYear) {
+		console.log({ existPlayerByYear, year })
 		existPlayerByYear = await updateMemoryPlayers(year)
 	}
 

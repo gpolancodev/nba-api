@@ -159,6 +159,7 @@ Para inicializar eslint utilizaremos el comando `npx eslint --init`.
 ## 6. Configurar ts-node-dev
 
 -   https://www.coreycleary.me/project-structure-for-an-express-rest-api-when-there-is-no-standard-way
+-   https://auth0.com/blog/node-js-and-typescript-tutorial-build-a-crud-api/
 
 ### END POINTS
 
