@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "ts-node-dev ./src/index.ts",
+		"build": "tsc",
 		"prettier:check": "prettier --check .",
 		"prettier:write": "prettier --write .",
 		"lint:check": "eslint .",
