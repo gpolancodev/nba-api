@@ -4,7 +4,7 @@ import * as playerService from '../services/playerService'
 class PlayerRouter {
 	router: express.Router
 
-	path = '/'
+	path = '/players'
 
 	constructor() {
 		this.router = express.Router()
@@ -21,7 +21,7 @@ class PlayerRouter {
 		 * @param {number} year
 		 * @returns {Promise<Player[]>}
 		 */
-		this.router.get('/:year/players', async (_req, res) => {
+		this.router.get('/:year', async (_req, res) => {
 			try {
 				const { year } = _req.params
 
